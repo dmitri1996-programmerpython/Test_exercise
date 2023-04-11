@@ -7,6 +7,7 @@ from pathlib import Path
 from sys import argv
 from chardet.universaldetector import UniversalDetector
 
+
 def encoding_file(v_path): # Получение кодировки исходного файла
     detector = UniversalDetector()
     with open(v_path, 'rb') as fh:
@@ -100,10 +101,9 @@ def xml_to_csv(v_path, encoding):
         indices = [i for i in range(len(inndex_delete)) if inndex_delete[i] != 1]
         for i in reversed(indices):
             payers_sp.pop(i)
-
-        # Добавить ко всем нужным записям инфу о файле
+        #
+        # # Добавить ко всем нужным записям инфу о файле
         payers_sp = [common_data + i for i in payers_sp]
-
 
         # Создание DataFrame для записи в csv файл
         df = pd.DataFrame(payers_sp)
